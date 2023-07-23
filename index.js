@@ -1,8 +1,8 @@
-const Twit = require("twit");
-const express = require("express");
+import Twit from "twit";
+import express, { json } from "express";
 const app = express();
-const cors = require("cors");
-const cron = require("node-cron");
+import cors from "cors";
+import { schedule } from "node-cron";
 
 const client = new Twit({
   consumer_key: "r1EVyzUgxNDwqOwGi7mn1zCFx",
@@ -12,7 +12,7 @@ const client = new Twit({
 });
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 var my_array = [
   {
@@ -257,7 +257,7 @@ function editMessageByIndex(array, index, newMessage) {
   }
 }
 
-cron.schedule("0 * * * *", () => {
+schedule("0 * * * *", () => {
   const onFinish = (err, reply) => {
     if (err) {
       console.log({ status: "Error", erro: err.message });
