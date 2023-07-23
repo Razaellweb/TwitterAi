@@ -257,7 +257,7 @@ function editMessageByIndex(array, index, newMessage) {
   }
 }
 
-schedule("0 * * * *", () => {
+schedule("0 */3 * * *", () => {
   const onFinish = (err, reply) => {
     if (err) {
       console.log({ status: "Error", erro: err.message });
