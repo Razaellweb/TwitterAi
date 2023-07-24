@@ -314,6 +314,26 @@ schedule("0 14 * * *", () => {
   }
 });
 
+
+schedule("0 15 * * *", () => {
+  const onFinish = (err, reply) => {
+    if (err) {
+      console.log({ status: "Error", erro: err.message });
+    } else {
+      console.log({ status: "Done", message: reply });
+    }
+  };
+
+  for (var i = 0; i < my_array.length; i++) {
+    var obj = my_array[i];
+    if (obj.status === false) {
+      client.post("statuses/update", { status: obj.message }, onFinish);
+      obj.status = true;
+      break;
+    }
+  }
+});
+
 schedule("0 20 * * *", () => {
   const onFinish = (err, reply) => {
     if (err) {
@@ -395,6 +415,9 @@ app.get("/api/getNotSent", async (req, res) => {
 
 app.post("/api/editMessage", async (req, res) => {
   var messageIndex = getIndexByMessage(my_array, req.body.previousMessage);
+  console.log(messageIndex)
+  console.log(req.body.previousMessage)
+  console.log(req.body.newMessage)
   editMessageByIndex(my_array, messageIndex, req.body.newMessage);
   res.json({status: "done"})
 });
