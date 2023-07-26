@@ -17,11 +17,6 @@ app.use(json());
 var my_array = [
   {
     message:
-      "Firebase Auth and React Router are my go-to tools for creating a login system in React. They make it easy to handle authentication and authorization.",
-    status: false,
-  },
-  {
-    message:
       "One of the goals of being a backend and blockchain developer is to make the web more open, transparent and democratic. I use blockchain technologies to create applications that are decentralized, secure and fair. They empower users and communities.",
     status: false,
   },
@@ -257,101 +252,100 @@ function editMessageByIndex(array, index, newMessage) {
   }
 }
 
-schedule("0 12 * * *", () => {
-  const onFinish = (err, reply) => {
-    if (err) {
-      console.log({ status: "Error", erro: err.message });
-    } else {
-      console.log({ status: "Done", message: reply });
-    }
-  };
+// schedule("0 12 * * *", () => {
+//   const onFinish = (err, reply) => {
+//     if (err) {
+//       console.log({ status: "Error", erro: err.message });
+//     } else {
+//       console.log({ status: "Done", message: reply });
+//     }
+//   };
 
-  for (var i = 0; i < my_array.length; i++) {
-    var obj = my_array[i];
-    if (obj.status === false) {
-      client.post("statuses/update", { status: obj.message }, onFinish);
-      obj.status = true;
-      break;
-    }
-  }
-});
+//   for (var i = 0; i < my_array.length; i++) {
+//     var obj = my_array[i];
+//     if (obj.status === false) {
+//       client.post("statuses/update", { status: obj.message }, onFinish);
+//       obj.status = true;
+//       break;
+//     }
+//   }
+// });
 
-schedule("0 8 * * *", () => {
-  const onFinish = (err, reply) => {
-    if (err) {
-      console.log({ status: "Error", erro: err.message });
-    } else {
-      console.log({ status: "Done", message: reply });
-    }
-  };
+// schedule("0 8 * * *", () => {
+//   const onFinish = (err, reply) => {
+//     if (err) {
+//       console.log({ status: "Error", erro: err.message });
+//     } else {
+//       console.log({ status: "Done", message: reply });
+//     }
+//   };
 
-  for (var i = 0; i < my_array.length; i++) {
-    var obj = my_array[i];
-    if (obj.status === false) {
-      client.post("statuses/update", { status: obj.message }, onFinish);
-      obj.status = true;
-      break;
-    }
-  }
-});
+//   for (var i = 0; i < my_array.length; i++) {
+//     var obj = my_array[i];
+//     if (obj.status === false) {
+//       client.post("statuses/update", { status: obj.message }, onFinish);
+//       obj.status = true;
+//       break;
+//     }
+//   }
+// });
 
-schedule("0 14 * * *", () => {
-  const onFinish = (err, reply) => {
-    if (err) {
-      console.log({ status: "Error", erro: err.message });
-    } else {
-      console.log({ status: "Done", message: reply });
-    }
-  };
+// schedule("0 14 * * *", () => {
+//   const onFinish = (err, reply) => {
+//     if (err) {
+//       console.log({ status: "Error", erro: err.message });
+//     } else {
+//       console.log({ status: "Done", message: reply });
+//     }
+//   };
 
-  for (var i = 0; i < my_array.length; i++) {
-    var obj = my_array[i];
-    if (obj.status === false) {
-      client.post("statuses/update", { status: obj.message }, onFinish);
-      obj.status = true;
-      break;
-    }
-  }
-});
+//   for (var i = 0; i < my_array.length; i++) {
+//     var obj = my_array[i];
+//     if (obj.status === false) {
+//       client.post("statuses/update", { status: obj.message }, onFinish);
+//       obj.status = true;
+//       break;
+//     }
+//   }
+// });
 
+// schedule("0 15 * * *", () => {
+//   const onFinish = (err, reply) => {
+//     if (err) {
+//       console.log({ status: "Error", erro: err.message });
+//     } else {
+//       console.log({ status: "Done", message: reply });
+//     }
+//   };
 
-schedule("0 15 * * *", () => {
-  const onFinish = (err, reply) => {
-    if (err) {
-      console.log({ status: "Error", erro: err.message });
-    } else {
-      console.log({ status: "Done", message: reply });
-    }
-  };
+//   for (var i = 0; i < my_array.length; i++) {
+//     var obj = my_array[i];
+//     if (obj.status === false) {
+//       client.post("statuses/update", { status: obj.message }, onFinish);
+//       obj.status = true;
+//       break;
+//     }
+//   }
+// });
 
-  for (var i = 0; i < my_array.length; i++) {
-    var obj = my_array[i];
-    if (obj.status === false) {
-      client.post("statuses/update", { status: obj.message }, onFinish);
-      obj.status = true;
-      break;
-    }
-  }
-});
+// schedule("0 20 * * *", () => {
+//   const onFinish = (err, reply) => {
+//     if (err) {
+//       console.log({ status: "Error", erro: err.message });
+//     } else {
+//       console.log({ status: "Done", message: reply });
+//     }
+//   };
 
-schedule("0 20 * * *", () => {
-  const onFinish = (err, reply) => {
-    if (err) {
-      console.log({ status: "Error", erro: err.message });
-    } else {
-      console.log({ status: "Done", message: reply });
-    }
-  };
-
-  for (var i = 0; i < my_array.length; i++) {
-    var obj = my_array[i];
-    if (obj.status === false) {
-      client.post("statuses/update", { status: obj.message }, onFinish);
-      obj.status = true;
-      break;
-    }
-  }
-});
+//   for (var i = 0; i < my_array.length; i++) {
+//     var obj = my_array[i];
+//     if (obj.status === false) {
+//       client.post("statuses/update", { status: obj.message }, onFinish);
+//       obj.status = true;
+//       break;
+//     }
+//   }
+// });
 
 // const tweet = () => {
 //   const text = "Hey!";
@@ -368,6 +362,44 @@ schedule("0 20 * * *", () => {
 // };
 
 // tweet();
+
+function yourFunction() {
+  // Your function's code goes here
+  const onFinish = (err, reply) => {
+    if (err) {
+      console.log({ status: "Error", erro: err.message });
+    } else {
+      console.log({ status: "Done", message: reply });
+    }
+  };
+
+  for (var i = 0; i < my_array.length; i++) {
+    var obj = my_array[i];
+    if (obj.status === false) {
+      client.post("statuses/update", { status: obj.message }, onFinish);
+      obj.status = true;
+      break;
+    }
+  }
+}
+
+function executeFunctionAtScheduledTimes() {
+  const scheduleTimes = ["03:40:00", "12:00:00", "16:00:00", "20:00:00", "08:00:00"];
+
+  setInterval(() => {
+    const now = new Date();
+    const currentTime = now.toLocaleTimeString("en-US", { hour12: false });
+
+    if (scheduleTimes.includes(currentTime)) {
+      // Call your function here
+      yourFunction();
+    }
+  }, 1000); // Check every second (adjust the interval as needed)
+}
+
+
+
+executeFunctionAtScheduledTimes();
 
 app.post("/api/postStatus", async (req, res) => {
   const onFinish = (err, reply) => {
@@ -415,24 +447,22 @@ app.get("/api/getNotSent", async (req, res) => {
 
 app.post("/api/editMessage", async (req, res) => {
   var messageIndex = getIndexByMessage(my_array, req.body.previousMessage);
-  console.log(messageIndex)
-  console.log(req.body.previousMessage)
-  console.log(req.body.newMessage)
+  console.log(messageIndex);
+  console.log(req.body.previousMessage);
+  console.log(req.body.newMessage);
   editMessageByIndex(my_array, messageIndex, req.body.newMessage);
-  res.json({status: "done"})
+  res.json({ status: "done" });
 });
 
 app.post("/api/addTweet", async (req, res) => {
   try {
-    var newItem ={
+    var newItem = {
       message: req.body.message,
-      status: false
-    }
-   my_array.unshift(newItem)
-   console.log("done")
-  } catch {
-    
-  }
+      status: false,
+    };
+    my_array.unshift(newItem);
+    console.log("done");
+  } catch {}
 });
 
 app.listen(process.env.PORT || 5000, () => {
