@@ -401,7 +401,7 @@ function executeFunctionAtScheduledTimes() {
 
 executeFunctionAtScheduledTimes();
 
-app.post("/api/postStatus", async (req, res) => {
+app.get("/api/postStatus", async (req, res) => {
   const onFinish = (err, reply) => {
     if (err) {
       res.json({ status: "Error", erro: err.message });
