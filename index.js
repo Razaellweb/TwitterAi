@@ -88,7 +88,7 @@ app.post("/api/editMessage", async (req, res) => {
 
 app.post("/api/addTweet", async (req, res) => {
   try {
-    await Message.insert({
+    await Message.create({
       message: req.body.message,
       status: false,
     });
