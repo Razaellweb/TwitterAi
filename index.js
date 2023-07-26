@@ -252,25 +252,6 @@ function editMessageByIndex(array, index, newMessage) {
   }
 }
 
-// schedule("0 12 * * *", () => {
-//   const onFinish = (err, reply) => {
-//     if (err) {
-//       console.log({ status: "Error", erro: err.message });
-//     } else {
-//       console.log({ status: "Done", message: reply });
-//     }
-//   };
-
-//   for (var i = 0; i < my_array.length; i++) {
-//     var obj = my_array[i];
-//     if (obj.status === false) {
-//       client.post("statuses/update", { status: obj.message }, onFinish);
-//       obj.status = true;
-//       break;
-//     }
-//   }
-// });
-
 // schedule("0 8 * * *", () => {
 //   const onFinish = (err, reply) => {
 //     if (err) {
