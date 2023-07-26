@@ -363,43 +363,6 @@ function editMessageByIndex(array, index, newMessage) {
 
 // tweet();
 
-function yourFunction() {
-  // Your function's code goes here
-  const onFinish = (err, reply) => {
-    if (err) {
-      console.log({ status: "Error", erro: err.message });
-    } else {
-      console.log({ status: "Done", message: reply });
-    }
-  };
-
-  for (var i = 0; i < my_array.length; i++) {
-    var obj = my_array[i];
-    if (obj.status === false) {
-      client.post("statuses/update", { status: obj.message }, onFinish);
-      obj.status = true;
-      break;
-    }
-  }
-}
-
-function executeFunctionAtScheduledTimes() {
-  const scheduleTimes = ["03:40:00", "12:00:00", "16:00:00", "20:00:00", "08:00:00"];
-
-  setInterval(() => {
-    const now = new Date();
-    const currentTime = now.toLocaleTimeString("en-US", { hour12: false });
-
-    if (scheduleTimes.includes(currentTime)) {
-      // Call your function here
-      yourFunction();
-    }
-  }, 1000); // Check every second (adjust the interval as needed)
-}
-
-
-
-executeFunctionAtScheduledTimes();
 
 app.get("/api/postStatus", async (req, res) => {
   const onFinish = (err, reply) => {
