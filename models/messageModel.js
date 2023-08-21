@@ -1,12 +1,13 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const Tweets = new mongoose.Schema({
-    message: {type: String, required: true, unique: true},
+    message: {type: String, required: true},
     status: {type: Boolean, required: true},
 }, 
 {collection: "space-user"})
 
-const model = mongoose.model("tweets", Tweets)
+const Message = mongoose.model("tweets", Tweets)
 
-module.exports = model;
+export default Message;
 

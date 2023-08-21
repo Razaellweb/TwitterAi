@@ -1,10 +1,12 @@
-const Twit = require("twit");
-const express = require("express");
-const cors = require("cors");
+import Twit from "twit";
+import express from "express";
+import cors from "cors";
 const app = express();
-const mongoose = require("mongoose");
-const Message = require("./models/messageModel");
-const dotenv = require("dotenv");
+import mongoose from "mongoose";
+import Message from "./models/messageModel.js";
+import exportFunction from "./postTweet.js";
+import dotenv from "dotenv";
+
 
 dotenv.config();
 
@@ -18,7 +20,9 @@ const client = new Twit({
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.URI);
+mongoose.connect(
+  process.env.uri
+);
 
 const getFalseMessage = async () => {
   const obj = await Message.find({
@@ -47,7 +51,8 @@ app.get("/api/postStatus", async (req, res) => {
 
   var obj = await getFalseMessage();
   console.log(obj);
-  client.post("statuses/update", { status: obj.message }, onFinish);
+  // client.post("statuses/update", { status: obj.message }, onFinish);
+  exportFunction(obj.message);
   changeStatus(obj.message);
 });
 
@@ -93,11 +98,10 @@ app.post("/api/addTweet", async (req, res) => {
       status: false,
     });
     res.json({ status: "message sent succesfully", sent: true });
-  } catch(err) {
-    console.log(err)
+  } catch (err) {
+    console.log(err);
     res.json({ status: err, sent: false });
   }
-
 });
 
 app.listen(process.env.PORT || 5000, () => {
